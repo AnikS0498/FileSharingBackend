@@ -1,18 +1,21 @@
 body, html{
     font-family: system-ui;
     background-color: #eff8ff;
-    margin: 0;
-    padding: 0;
+    /* margin-bottom: 0px;
+    padding: 0; */
     text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 
 .upload-container{
     text-align: center;
     box-shadow: 0px 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s; 
-    margin: 10%;
-    width: 50%;
+    transition: 0.3s;
+    margin: 5% 25% 10%;
+    max-width: 50%;
+    border-radius: 20px;
 }
 
 .upload-container:hover{
@@ -22,17 +25,17 @@ body, html{
 .card{
     padding: 40px 80px;
     background-color: white;
-    border-radius: 10px ;
+    border-radius: 20px ;
 }
 
 .upload-area{
     background-color: white;
-    border-radius: 10px ;
+    border-radius: 20px ;
     border: 2px dashed #98acf8;
     padding: 30px 100px;
 }
 
-.upload-area-item-dropped.upload-area{
+.upload-area-item-dropped .upload-area{
     background-color: #eff8ff;
     border: 2px dashed  #0085ff;
     transition: 0.2s ease;
@@ -46,6 +49,97 @@ body, html{
     margin: 20px 20px;
 }
 
+.progress-container{
+    /* width: 50%; */
+    margin-top: 20px;
+    height: 70px;
+    border: 2px solid #eff8ff;
+    border-radius: 10px;
+    position: relative;
+    display: none;
+}
+
+.progress-container .bg-progress{
+    background-color: #eff8ff;
+    width: 0%;
+    height: 100%;
+    transform-origin: left;
+    transition: width .25s linear;
+    position: absolute;
+}
+
+.progress-container .inner-container{
+    position: absolute;
+    z-index: 1;
+    margin: 10px 15px;
+    width: calc(100% - 30px);
+}
+
+.progress-container .upload-percentage-container{
+    text-align: left;
+    font-size: 0.90rem;
+    opacity: 80%;
+}
+
+.progress-container .small-progress-bar{
+    height: 3px;
+    width: 100%;
+    background-color: #0085ff;
+    border-radius: 2px;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .25s linear;
+}
+
+.progress-container .uploading-title{
+    text-align: left;
+}
+
+.download-link-container{
+    position: relative;
+    display: none;
+}
+
+.download-link-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 40px;
+    width: 100%;
+
+    font-size: 1rem;
+    padding: 10px 15px;
+
+
+}
+
+.download-link-container .btn{
+    margin: 5px 10px;
+}
+
+.download-link-container #downloadLinkInput{
+    display: none;
+}
+
+.uploadMessage{
+    margin: 20px auto;
+    display: none;
+}
+
+#toast{
+    position: absolute;
+    bottom: 10px;
+    right: 50px;
+    transform: translate(400%, 70px);
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #0085ff;
+    color: white;
+    font-size: 1rem;
+    transition: transform ease-in-out 1s;
+    box-shadow: 0px 16px 24px 2px rgba(0,0,0,0.14) , 0px 6px 30px 5px rgba(0,0,0,0.12) , 0px 8px 10px -7px rgba(0,0,0,0.2)  ;
+    /* display: none; */
+}
+
 a{
     color: inherit;
 }
@@ -54,9 +148,4 @@ a{
 
 #fileInput{
     display: none;
-}
-
-p{
-    font-size: 0.75rem;
-     
 }
